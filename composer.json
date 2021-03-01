@@ -1,0 +1,22 @@
+{
+    "name": "shetabit/response-cache",
+    "description": " ",
+    "keywords": ["laravel", "cache", "page" , "speed"],
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "shetabit",
+            "email": "sh@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Shetabit\\ResponseCache\\CacheServiceProvider"
+            ]
+        }
+    }
+}
