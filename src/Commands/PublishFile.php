@@ -57,7 +57,5 @@ class PublishFile extends Command
 
 
         $this->info('Installed Package');
-        $this->info("copy this to first line public/index.php");
-        $this->info(" require_once __DIR__ . '/../app/Caches/LoadCache.php'; ");
     }
 }
