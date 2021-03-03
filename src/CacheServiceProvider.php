@@ -25,5 +25,6 @@ class CacheServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/Caches' => app_path('Caches'),
         ],'files');
+
     }
 }

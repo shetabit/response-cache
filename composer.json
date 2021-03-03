@@ -1,17 +1,34 @@
 {
     "name": "shetabit/response-cache",
     "description": " ",
-    "keywords": ["laravel", "cache", "page" , "speed"],
+    "homepage"   : "https://github.com/shetabit/response-cache",
+    "keywords": ["shetabit","laravel", "cache", "page" , "speed"],
     "type": "package",
     "license": "MIT",
     "authors": [
         {
-            "name": "shetabit",
-            "email": "sh@gmail.com"
+            "name": "",
+            "email": "",
+            "homepage": "https://github.com/",
+            "role": "Developer"
+        },
+        {
+            "name": "",
+            "email": "",
+            "homepage": "https://github.com/",
+            "role": "Developer"
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "php": ">=7.2",
+        "illuminate/support": "^5.1|6.*|7.*|8.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Shetabit\\ResponseCach\\": "src"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [

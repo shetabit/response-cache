@@ -38,10 +38,25 @@ class PublishFile extends Command
      */
     public function handle()
     {
-        $this->callSilent('vendor:publish', ['--tag' => 'files' ,'--force' => true]);
 
-        $this->info('Copied files successfully');
-        $this->info('package was installed successfully.');
+        $this->info('Installing Package...');
+        $this->info('Publishing configuration...');
+
+        $this->callSilent('vendor:publish', ['--tag' => 'files' ,'--force' => true]);
+        $this->callSilent('vendor:publish', ['--tag' => 'config' ,'--force' => true]);
+
+
+        $content=file(public_path('index.php'));
+        foreach($content as $lineNumber => &$lineContent) { //Loop through the array (the "lines")
+            if($lineNumber == 1) { //Remember we start at line 0.
+                $lineContent .= "require_once __DIR__ . '/../app/Caches/LoadCache.php';" . PHP_EOL; //Modify the line. (We're adding another line by using PHP_EOL)
+            }
+        }
+        $allContent = implode("", $content);
+        file_put_contents(public_path('index.php'), $allContent);
+
+
+        $this->info('Installed Package');
         $this->info("copy this to first line public/index.php");
         $this->info(" require_once __DIR__ . '/../app/Caches/LoadCache.php'; ");
     }

@@ -48,6 +48,7 @@ class MakeCache
 
     public static function PushToMap($filePath){
         $mapPath = storage_path('framework/cache/facade-page-map.php');
+        //        Config::get('responsecathe::map_path');
         try {
             $cacheMap = file_get_contents($mapPath);
         } catch (\ErrorException $exception) {
