@@ -21,7 +21,8 @@ class MakeCache
     public static function handle(RequestHandled $requestHandled)
     {
         $request = $requestHandled->request;
-        if (!$request->isMethod('GET') ||  app()->runningInConsole()) {
+        $response = $requestHandled->response;
+        if ((!$request->isMethod('GET') && $response->isSuccessful())) {
             static::clearCache();
 
             return;

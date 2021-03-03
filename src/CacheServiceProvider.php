@@ -15,7 +15,9 @@ class CacheServiceProvider extends ServiceProvider
     public function boot()
     {
         Event::listen(RequestHandled::class, [MakeCache::class, 'handle']);
-
+        if (app()->runningInConsole()){
+            MakeCache::clearCache();
+        }
         if ($this->app->runningInConsole()) {
             $this->commands([
                 PublishFile::class,
